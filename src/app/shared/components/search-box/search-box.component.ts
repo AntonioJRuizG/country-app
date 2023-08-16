@@ -22,7 +22,7 @@ export class SearchBoxComponent {
   @ViewChild('txtInput')
   public searchBoxInput!: ElementRef<HTMLInputElement>;
 
-  searchByCapital(): void {
+  emitSearchTerm(): void {
     this.onValue.emit(this.searchBoxInput.nativeElement.value);
   }
 }
