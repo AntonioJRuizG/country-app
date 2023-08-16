@@ -7,8 +7,18 @@ import { RouterModule } from '@angular/router';
 import { ContactComponent } from './pages/contact/contact.component';
 
 @NgModule({
-  declarations: [HomePageComponent, AboutComponent, SidebarComponent, ContactComponent],
+  declarations: [
+    HomePageComponent,
+    AboutComponent,
+    SidebarComponent,
+    ContactComponent,
+  ],
   imports: [CommonModule, RouterModule],
-  exports: [HomePageComponent, AboutComponent, SidebarComponent],
+  exports: [
+    HomePageComponent,
+    AboutComponent,
+    SidebarComponent,
+    ContactComponent,
+  ],
 })
 export class SharedModule {}

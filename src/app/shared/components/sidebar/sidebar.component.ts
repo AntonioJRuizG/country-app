@@ -15,5 +15,9 @@ export class SidebarComponent {
       path: 'about',
       label: 'About',
     },
+    {
+      path: 'contact',
+      label: 'Contact',
+    },
   ];
 }
