@@ -19,5 +19,21 @@ export class SidebarComponent {
       path: 'contact',
       label: 'Contact',
     },
+    {
+      path: 'countries',
+      label: 'Countries',
+    },
+    {
+      path: 'countries/by-capital',
+      label: 'By capital',
+    },
+    {
+      path: 'countries/by-country',
+      label: 'By country',
+    },
+    {
+      path: 'countries/by-region',
+      label: 'By region',
+    },
   ];
 }
