@@ -1,6 +1,18 @@
 # CountryApp
 
+SPA with a countries search engine. Search countries by name, capital or region.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+
+## Technologies
+
+- Angular.
+  - Router Module.
+  - LazyLoading.
+  - Child rounting.
+  - Error handling.
+  - Pipes.
+- BootStrap.
 
 ## Development server
 
