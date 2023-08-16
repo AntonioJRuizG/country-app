@@ -20,7 +20,7 @@ export class CountryPageComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params
       .pipe(
-        switchMap(({ id }) => this.countriesService.searchCountryByFullName(id))
+        switchMap(({ id }) => this.countriesService.searchCountryByCode(id))
       )
       .subscribe((country) => {
         if (!country) {

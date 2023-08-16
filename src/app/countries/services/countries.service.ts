@@ -24,8 +24,8 @@ export class CountriesService {
     return this.http.get<Country[]>(url).pipe(catchError(() => of([])));
   }
 
-  searchCountryByFullName(searchValue: string): Observable<Country | null> {
-    const url = `${this.countriesApiUri}/name/${searchValue}?fullText=true`;
+  searchCountryByCode(searchValue: string): Observable<Country | null> {
+    const url = `${this.countriesApiUri}/alpha/${searchValue}`;
 
     return this.http.get<Country[]>(url).pipe(
       map((countries) => (countries.length > 0 ? countries[0] : null)),
