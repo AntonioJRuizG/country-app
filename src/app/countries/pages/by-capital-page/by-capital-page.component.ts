@@ -4,4 +4,9 @@ import { Component } from '@angular/core';
   selector: 'countries-by-capital-page',
   templateUrl: './by-capital-page.component.html',
 })
-export class ByCapitalPageComponent {}
+export class ByCapitalPageComponent {
+  searchByCapital(term: string): void {
+    console.log('Evento desde by capital page');
+    console.log({ term });
+  }
+}

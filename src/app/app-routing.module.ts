@@ -15,7 +15,7 @@ const routes: Routes = [
         (module) => module.CountriesModule
       ),
   },
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: 'countries' },
 ];
 
 @NgModule({

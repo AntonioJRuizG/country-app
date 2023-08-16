@@ -7,7 +7,7 @@ import { SidebarLabel } from 'src/types/types';
 })
 export class SidebarComponent {
   public sidebarItems: SidebarLabel[] = [
-    {
+    /* {
       path: 'home',
       label: 'Home',
     },
@@ -22,7 +22,7 @@ export class SidebarComponent {
     {
       path: 'countries',
       label: 'Countries',
-    },
+    },*/
     {
       path: 'countries/by-capital',
       label: 'By capital',
