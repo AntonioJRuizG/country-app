@@ -11,7 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
   - LazyLoading.
   - Child rounting.
   - Error handling.
-  - Pipes.
+  - Pipes (map, switchmap, catchError, tap).
 - BootStrap.
 
 ## Development server
