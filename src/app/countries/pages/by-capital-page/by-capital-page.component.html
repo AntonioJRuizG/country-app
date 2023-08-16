@@ -10,10 +10,6 @@
 <div class="row">
   <div class="col">
     <hr>
-    <ul *ngFor="let country of countriesList" class="col">
-      <li>
-        {{country.name.common}}
-      </li>
-    </ul>
+    <countries-country-gallery [countries]="countriesList"></countries-country-gallery>
   </div>
 </div>
