@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country';
 
-type Region = 'Americas' | 'Africa' | 'Asia' | 'Europe' | 'Oceania';
+export type Region = '' | 'Americas' | 'Africa' | 'Asia' | 'Europe' | 'Oceania';
 @Component({
   selector: 'countries-by-region-page',
   templateUrl: './by-region-page.component.html',
