@@ -15,7 +15,6 @@
     <thead>
       <tr>
         <td>#</td>
-        <th>Icon</th>
         <th>Flag</th>
         <th>Name</th>
         <th>Capital</th>
@@ -26,7 +25,6 @@
     <tbody>
       <tr *ngFor="let country of countries; let i=index">
         <td>{{i+1}}</td>
-        <td>{{country.flag}}</td>
         <td><img class="img-fluid" [src]="country.flags.svg" [alt]="country.flags.alt" width="50" height="50">
         </td>
         <td>{{country.name.common}}</td>
