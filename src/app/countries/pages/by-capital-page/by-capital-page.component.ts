@@ -10,6 +10,7 @@ export class ByCapitalPageComponent implements OnInit {
   public countriesList: Country[] = [];
   public isLoading: boolean = false;
   public voidSearchTerm: boolean = true;
+  public initialValue: string = '';
 
   constructor(private countriesService: CountriesService) {}
 
@@ -18,11 +19,7 @@ export class ByCapitalPageComponent implements OnInit {
     this.initialValue = this.countriesService.cacheStore.byCapital.term;
   }
 
-  @Output()
-  public initialValue: string = '';
-
   searchByCapital(term: string) {
-    this.initialValue = term;
     term ? (this.voidSearchTerm = false) : (this.voidSearchTerm = true);
     this.isLoading = true;
     this.countriesService
