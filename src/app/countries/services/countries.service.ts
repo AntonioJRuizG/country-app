@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Country } from '../interfaces/country';
-import { Observable, catchError, delay, map, of, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { CacheStore } from '../interfaces/cache-store';
 import { Region } from '../pages/by-region-page/by-region-page.component';
 
@@ -20,10 +20,7 @@ export class CountriesService {
   }
 
   private getCountriesRequest(url: string): Observable<Country[]> {
-    return this.http.get<Country[]>(url).pipe(
-      catchError(() => of([])),
-      delay(2000)
-    );
+    return this.http.get<Country[]>(url).pipe(catchError(() => of([])));
   }
 
   searchCountryByCapital(searchValue: string): Observable<Country[]> {
@@ -74,7 +71,6 @@ export class CountriesService {
     return this.http.get<Country[]>(url).pipe(
       map((countries) => (countries.length > 0 ? countries[0] : null)),
       catchError(() => of(null)),
-      delay(2000),
       tap(() => this.saveToLocalStorage())
     );
   }
