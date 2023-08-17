@@ -15,7 +15,9 @@ export class CountriesService {
     byRegion: { region: '', countries: [] },
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.loadFromLocalStorage();
+  }
 
   private getCountriesRequest(url: string): Observable<Country[]> {
     return this.http.get<Country[]>(url).pipe(
@@ -33,7 +35,8 @@ export class CountriesService {
             term: searchValue,
             countries: countries,
           })
-      )
+      ),
+      tap(() => this.saveToLocalStorage())
     );
   }
 
@@ -46,7 +49,8 @@ export class CountriesService {
             countries,
             term: searchValue,
           })
-      )
+      ),
+      tap(() => this.saveToLocalStorage())
     );
   }
 
@@ -59,7 +63,8 @@ export class CountriesService {
             countries,
             region: searchValue,
           })
-      )
+      ),
+      tap(() => this.saveToLocalStorage())
     );
   }
 
@@ -69,7 +74,22 @@ export class CountriesService {
     return this.http.get<Country[]>(url).pipe(
       map((countries) => (countries.length > 0 ? countries[0] : null)),
       catchError(() => of(null)),
-      delay(2000)
+      delay(2000),
+      tap(() => this.saveToLocalStorage())
+    );
+  }
+
+  private loadFromLocalStorage() {
+    if (!localStorage.getItem('countries_app_search_results')) return;
+    this.cacheStore = JSON.parse(
+      localStorage.getItem('countries_app_search_results')!
+    );
+  }
+
+  private saveToLocalStorage(): void {
+    localStorage.setItem(
+      'countries_app_search_results',
+      JSON.stringify(this.cacheStore)
     );
   }
 }
