@@ -31,6 +31,9 @@ export class SearchBoxComponent implements OnInit {
   @Input()
   public placeholder: string = '';
 
+  @Input()
+  public initialValue: string = '';
+
   // Mediante Output el método 'onValue' se inyecta en el selector <shared-search-box (onValue)="métodoDeOtroComponente()"> y ejecuta el método del otro componente en el que el selector sea usado.
   @Output()
   public onValue = new EventEmitter<string>();
