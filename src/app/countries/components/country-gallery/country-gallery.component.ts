@@ -11,4 +11,7 @@ export class CountryGalleryComponent {
 
   @Input()
   public isLoading: boolean = false;
+
+  @Input()
+  public voidSearchTerm: boolean = true;
 }

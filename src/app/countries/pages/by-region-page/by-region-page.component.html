@@ -3,12 +3,14 @@
 
 <div class="row">
   <div class="col">
-    <shared-search-box (onValue)="searchByRegion($event)" placeholder="Search by region"></shared-search-box>
+    <shared-search-box (onDebounce)="searchByRegion($event)" (onValue)="searchByRegion($event)"
+      placeholder="Search by region"></shared-search-box>
   </div>
 </div>
 <hr>
 <div class="row mt-2">
   <div class="col">
-    <countries-country-gallery [isLoading]="isLoading" [countries]="countriesList"></countries-country-gallery>
+    <countries-country-gallery [voidSearchTerm]="voidSearchTerm" [isLoading]="isLoading"
+      [countries]="countriesList"></countries-country-gallery>
   </div>
 </div>

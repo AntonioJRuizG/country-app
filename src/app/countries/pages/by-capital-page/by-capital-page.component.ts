@@ -9,9 +9,11 @@ import { Country } from '../../interfaces/country';
 export class ByCapitalPageComponent {
   public countriesList: Country[] = [];
   public isLoading: boolean = false;
+  public voidSearchTerm: boolean = true;
   constructor(private countriesService: CountriesService) {}
 
   searchByCapital(term: string) {
+    term ? (this.voidSearchTerm = false) : (this.voidSearchTerm = true);
     this.isLoading = true;
     this.countriesService
       .searchCountryByCapital(term)
