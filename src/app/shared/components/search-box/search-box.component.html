@@ -1,1 +1,4 @@
-<input (keyup.enter)="emitSearchTerm()" type="text" placeholder={{placeholder}} class="form-control" #txtInput>
+<!-- <input (keyup.enter)="emitSearchTerm()" type="text" placeholder={{placeholder}}
+  class="form-control" #txtInput> -->
+<input (keyup.enter)="emitSearchTerm()" (keyup)="onKeyPress(txtInput.value)" type="text" [value]="initialValue"
+  placeholder={{placeholder}} class="form-control" #txtInput>

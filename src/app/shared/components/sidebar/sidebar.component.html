@@ -1,6 +1,9 @@
 <h2>Countries</h2>
 <hr>
 
-<ul *ngFor="let sidebarItem of sidebarItems" class="list-group">
-  <li routerLink={{sidebarItem.path}} routerLinkActive="active" class="list-group-item">{{sidebarItem.label}}</li>
+<ul class="d-flex flex-row flex-md-column pl-0">
+  <li *ngFor="let sidebarItem of sidebarItems" routerLink={{sidebarItem.path}} routerLinkActive="active"
+    class="m-1 p-1 px-2 btn btn-primary">{{sidebarItem.label}}
+
+  </li>
 </ul>

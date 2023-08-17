@@ -1,5 +1,8 @@
 <ng-template #loading>
-  <div class="alert alert-info">Loading</div>
+  <div class="alert alert-info">
+    Loading country details
+    <shared-activity-indicator></shared-activity-indicator>
+  </div>
 </ng-template>
 
 
@@ -13,7 +16,7 @@
   <div class="row">
     <div class="col-4">
       <h3>Flag</h3>
-      <img class="img-fluid" [src]="country.flags.svg" [alt]="country.flags.alt" width="80" height="80">
+      <img class="img-fluid" [src]="country.flags.svg" [alt]="country.flags.alt" width="150" height="100">
     </div>
     <div class="col">
       <h3>Information</h3>

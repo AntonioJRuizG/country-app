@@ -1,30 +1,31 @@
-<div *ngIf="countries.length === 0; else table" class="alert alert-warning text-center">
+<div *ngIf="isLoading && !voidSearchTerm" class="alert alert-warning text-center">
+  <shared-activity-indicator class="d-flex justify-content-center"></shared-activity-indicator>
+</div>
+<div *ngIf="!isLoading && !voidSearchTerm && countries.length === 0" class="alert alert-warning text-center">
   No results were found for your search.
 </div>
-<ng-template #table>
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <td>#</td>
-        <th>Icon</th>
-        <th>Flag</th>
-        <th>Name</th>
-        <th>Capital</th>
-        <th>Population</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let country of countries; let i=index">
-        <td>{{i+1}}</td>
-        <td>{{country.flag}}</td>
-        <td><img class="img-fluid" [src]="country.flags.svg" [alt]="country.flags.alt" width="50" height="50">
-        </td>
-        <td>{{country.name.common}}</td>
-        <td>{{country.capital}}</td>
-        <td>{{country.population | number}}</td>
-        <td><a [routerLink]="[ '/countries/by', country.cca3 ]">Info</a></td>
-      </tr>
-    </tbody>
-  </table>
-</ng-template>
+
+
+<table *ngIf="countries.length > 0" class="table table-hover">
+  <thead>
+    <tr>
+      <td>#</td>
+      <th>Flag</th>
+      <th>Name</th>
+      <th>Capital</th>
+      <th>Population</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let country of countries; let i=index">
+      <td>{{i+1}}</td>
+      <td><img class="img-fluid" [src]="country.flags.svg" [alt]="country.flags.alt" width="50" height="50">
+      </td>
+      <td>{{country.name.common}}</td>
+      <td>{{country.capital}}</td>
+      <td>{{country.population | number}}</td>
+      <td><a [routerLink]="[ '/countries/by', country.cca3 ]">Info</a></td>
+    </tr>
+  </tbody>
+</table>
