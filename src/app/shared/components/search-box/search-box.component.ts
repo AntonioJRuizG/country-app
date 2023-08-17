@@ -7,7 +7,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { Subject, debounceTime } from 'rxjs';
+import { Subject, Subscription, debounceTime } from 'rxjs';
 
 @Component({
   selector: 'shared-search-box',
@@ -15,11 +15,17 @@ import { Subject, debounceTime } from 'rxjs';
 })
 export class SearchBoxComponent implements OnInit {
   private debouncer: Subject<string> = new Subject<string>();
+  private debouncerSubsciption?: Subscription;
 
   ngOnInit(): void {
-    this.debouncer
+    this.debouncerSubsciption = this.debouncer
       .pipe(debounceTime(350))
       .subscribe((value) => this.onDebounce.emit(value));
+  }
+
+  // Al susbcribirse a una request sin usar get, es necesario destruirla para cerrarla.
+  ngOnDestroy(): void {
+    this.debouncerSubsciption?.unsubscribe();
   }
 
   @Input()
