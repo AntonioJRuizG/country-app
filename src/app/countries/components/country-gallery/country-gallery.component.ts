@@ -8,4 +8,7 @@ import { Country } from '../../interfaces/country';
 export class CountryGalleryComponent {
   @Input()
   public countries: Country[] = [];
+
+  @Input()
+  public isLoading: boolean = false;
 }

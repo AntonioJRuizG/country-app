@@ -8,11 +8,15 @@ import { Country } from '../../interfaces/country';
 })
 export class ByCapitalPageComponent {
   public countriesList: Country[] = [];
+  public isLoading: boolean = false;
   constructor(private countriesService: CountriesService) {}
 
   searchByCapital(term: string) {
+    this.isLoading = true;
     this.countriesService
       .searchCountryByCapital(term)
-      .subscribe((countries) => (this.countriesList = countries)); // Sin subscripción a la petición http no hay respuesta.
+      .subscribe((countries) => {
+        (this.countriesList = countries), (this.isLoading = false);
+      }); // Sin subscripción a la petición http no hay respuesta.
   }
 }

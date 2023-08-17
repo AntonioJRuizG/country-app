@@ -1,6 +1,15 @@
 <div *ngIf="countries.length === 0; else table" class="alert alert-warning text-center">
-  No results were found for your search.
+
+  <shared-activity-indicator *ngIf="isLoading; else warning"
+    class="d-flex justify-content-center"></shared-activity-indicator>
+  <ng-template #warning>
+    No results were found for your search.
+  </ng-template>
 </div>
+
+
+
+
 <ng-template #table>
   <table class="table table-hover">
     <thead>
